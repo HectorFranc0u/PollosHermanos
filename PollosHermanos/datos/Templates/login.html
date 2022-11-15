@@ -68,7 +68,27 @@
         </div>      
       </nav>
     <body style="background-color: #febc86;">
-    <div class="container">
-    <h1>INCIO DE SESION</h1>
-    </div>
+        <div class="container">
+            <h1>Inicio de sesion</h1>
+            <from class="row g-3 mt-3">
+                <div class="col-6"> 
+                    <label for="emailInput" class="form-label">Email:</label>
+                    <input type ="email" class="form-control" id="emailInput" placeholder="Ingrese su correo electronico" ></input>
+                </div>
+                <div class="col-6">
+                    <label for="inputPass" class="form-label">Contraseña:</label>
+                    <input type="password" class="form-control" id="inputPass" placeholder="Ingrese su contraseña"></input>
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input type="checkbox" id="checkUser" class="form-check-input"></input>
+                        <label for="checkUser" class="form-check-label">Mantener la Sesion Abierta</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">
+                        Iniciar Sesion
+                    </button>
+                </div>
+            </from>
 </html5>
