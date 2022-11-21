@@ -34,7 +34,7 @@ class tbProductos(models.Model):
     ProdName = models.CharField(max_length=200, null=True)
     ProdTipo = models.CharField(max_length=200)
     ProdUnidaddeMed = models.CharField(max_length=10)
-    ProdName = models.CharField(max_length=5)
+    ProdNombre = models.CharField(max_length=5, null=True)
     ProdCantidad = models.IntegerField(default='0')
     ProdProveedor = models.ForeignKey(tbProveedores, on_delete=models.CASCADE)
 

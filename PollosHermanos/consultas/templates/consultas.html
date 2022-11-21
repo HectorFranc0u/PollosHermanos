@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="header"> 
+    <center><img  src="https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/3/breaking-bad-los-pollos-hermanos-sign-poster-harris-clarke.jpg" width="500" height="100" alt="">
+      </center> 
+  </div> 
+  <div  class="menu"> 
+    <div class="dropdown"> 
+      <button  class="mainmenubtn">Main  Menu</button> 
+          <div  class="dropdown-child"> 
+          <a href="/datos/">home</a> 
+          </div>
+    </div> 
+  </div>
+<div class="content"> 
+<center> 
+<hr> 
+<h1>Consulta</h1> 
+
+<h2>Productos</h2>
+  <table> 
+    <tr> 
+      <td  style="background-color:gold"><font  >Nombre</font></td> 
+      <td style="background-color:gold"><font >Tipo</font></td> 
+      <td  style="background-color:gold"><font  >Unidad de medida</font></td> 
+      <td  style="background-color:gold"><font  >Productor</font></td>
+       
+    </tr>   
+{% for i in consultaprod %} 
+    <tr> 
+        <td style="background-color:gold"><font>{{ i.ProdName }}</font></td> 
+        <td style="background-color:gold"><font>{{ i.ProdTipo }}</font></td> 
+        <td style="background-color:gold"><font>{{ i.ProdUnidaddeMed }}</font></td> 
+        <td style="background-color:gold"><font>{{ i.ProdName }}</font></td> 
+    </tr> 
+{% endfor %} 
+  </table>
+<h2>Proveedores</h2>
+<table> 
+    <tr> 
+      <td  style="background-color:gold"><font  >Empresa</font></td> 
+      <td style="background-color:gold"><font >Nombre</font></td> 
+      <td  style="background-color:gold"><font  >Apellido</font></td> 
+      <td  style="background-color:gold"><font  >Pais</font></td>
+      <td  style="background-color:gold"><font  >Tipo de producto</font></td>
+      
+    </tr>   
+{% for i in consultaprov %} 
+    <tr> 
+      <td style="background-color:gold"><font>{{ i.ProvEmpresa }}</font></td> 
+      <td style="background-color:gold"><font>{{ i.ProvName }}</font></td> 
+      <td style="background-color:gold"><font>{{ i.ProvLastname }}</font></td> 
+      <td style="background-color:gold"><font>{{ i.ProvPais }}</font></td>
+      <td style="background-color:gold"><font>{{ i.ProvTipoProd }}</font></td> 
+    </tr> 
+{% endfor %} 
+</table> 
+</center> 
+</div> 
+<div  class="footer"> 
+</div> 
+{% endblock %}
