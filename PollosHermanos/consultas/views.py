@@ -8,7 +8,7 @@ from .form import ProductosForm, ProveedorForm
 def consultas(req):
     consultaprod = models.tbProductos.objects.all()
     consutlaprov = models.tbProveedores.objects.all()
-    return render(req, 'consultas.html', {"consultaprod":consultaprod}, {"consultaprov":consutlaprov})
+    return render(req, 'consultas.html', {"consultaprov":consutlaprov, "consultaprod":consultaprod})
 
 def agregar(req):
     if req.method == "POST":
@@ -21,4 +21,8 @@ def agregar(req):
     
     context = {'form' : form}
     return render(req, 'agregar.html', context)
-    
+
+def eliminar(req, tbProveedores_id):
+    borrar = models.tbProveedores.objects.get(id=tbProveedores_id)
+    borrar.delete()
+    return redirect('consultas')

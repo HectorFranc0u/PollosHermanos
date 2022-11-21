@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 
-{% block content %}
+{% block content %} 
+
   <div class="header"> 
     <center><img  src="https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/3/breaking-bad-los-pollos-hermanos-sign-poster-harris-clarke.jpg" width="500" height="100" alt="">
       </center> 
@@ -48,6 +49,7 @@
     </tr>   
 {% for i in consultaprov %} 
     <tr> 
+      <button><a href="{% url 'eliminar' i.id %}">Eliminar</a></button>
       <td style="background-color:gold"><font>{{ i.ProvEmpresa }}</font></td> 
       <td style="background-color:gold"><font>{{ i.ProvName }}</font></td> 
       <td style="background-color:gold"><font>{{ i.ProvLastname }}</font></td> 
