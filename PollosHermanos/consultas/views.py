@@ -26,3 +26,16 @@ def eliminar(req, tbProveedores_id):
     borrar = models.tbProveedores.objects.get(id=tbProveedores_id)
     borrar.delete()
     return redirect('consultas')
+
+def editar(req, tbProveedores_id):
+    editar = models.tbProveedores.objects.get(id=tbProveedores_id)
+    if req.method == "POST":
+        form = ProveedorForm(req.POST, instance=editar)
+        if form.is_valid():
+            form.save()
+            return redirect('consultas')
+    else:
+        form = ProveedorForm(instance=editar)
+
+    context = {"form" : form }
+    return render(req, "editar.html", context)
