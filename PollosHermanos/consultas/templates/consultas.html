@@ -3,25 +3,23 @@
 {% block content %} 
 
   <div class="header"> 
+    <br>
     <center><img  src="https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/3/breaking-bad-los-pollos-hermanos-sign-poster-harris-clarke.jpg" width="500" height="100" alt="">
       </center> 
   </div> 
-<div class="content"> 
+<div class="content text_center"> 
 <center>
-  <div  class="container text_center"> 
-    <a class="btn btn-danger" href="agregar/">agregar</a> 
-</div> 
 <hr> 
 <h1>Consulta</h1> 
 <div class="container text_center">
-    <h2>Productos</h2>
+    <h2>Productos  <a class="btn btn-danger" href="agregarProd/">agregar</a> </h2>
     <table class="table table-striped"> 
       <tr> 
         <td  style="background-color:gold"><font  >Nombre</font></td> 
         <td style="background-color:gold"><font >Tipo</font></td> 
         <td  style="background-color:gold"><font  >Unidad de medida</font></td> 
         <td  style="background-color:gold"><font  >Productor</font></td>
-        
+        <td style="background-color: gold;"><font> Acciones</font> </td>
       </tr>   
     {% for i in consultaprod %} 
       <tr> 
@@ -29,14 +27,21 @@
           <td style="background-color:gold"><font>{{ i.ProdTipo }}</font></td> 
           <td style="background-color:gold"><font>{{ i.ProdUnidaddeMed }}</font></td> 
           <td style="background-color:gold"><font>{{ i.ProdName }}</font></td> 
+          <td style="background-color:gold">
+            <a class="btn btn-danger btn-sm" href="{% url 'eliminarProd' i.id %}">Eliminar</a>
+            <a class="btn btn-info btn-sm" href="{% url 'editarProd' i.id %}">Editar</a>
+          </td>
       </tr> 
     {% endfor %} 
     </table>
-    <h2>Proveedores</h2>
+</div>
+
+<div class="container text_center">
+    <h2>Proveedores   <a class="btn btn-danger" href="agregarProv/">agregar</a> </h2>
     <table class="table table-striped"> 
       <tr> 
         <td  style="background-color:gold"><font  >Empresa</font></td> 
-        <td style="background-color:gold"><font >Nombre</font></td> 
+        <td  style="background-color:gold"><font >Nombre</font></td> 
         <td  style="background-color:gold"><font  >Apellido</font></td> 
         <td  style="background-color:gold"><font  >Pais</font></td>
         <td  style="background-color:gold"><font  >Tipo de producto</font></td>
@@ -49,16 +54,68 @@
         <td style="background-color:gold"><font>{{ i.ProvLastname }}</font></td> 
         <td style="background-color:gold"><font>{{ i.ProvPais }}</font></td>
         <td style="background-color:gold"><font>{{ i.ProvTipoProd }}</font></td> 
-        <td>
-          <a class="btn btn-danger" href="{% url 'eliminar' i.id %}">Eliminar</a>
-          <a class="btn btn-info" href="{% url 'editar' i.id %}">Editar</a>
+        <td style="background-color:gold">
+          <a class="btn btn-danger btn-sm" href="{% url 'eliminarProv' i.id %}">Eliminar</a>
+          <a class="btn btn-info btn-sm" href="{% url 'editarProv' i.id %}">Editar</a>
         </td>
       </tr> 
     {% endfor %} 
     </table> 
+  </div>
+
+  <div class="container text_center">
+    <h2>Sucursales   <a class="btn btn-danger" href="agregarSuc/">agregar</a> </h2>
+    <table class="table table-striped"> 
+      <tr> 
+        <td  style="background-color:gold"><font  >Nombre</font></td> 
+        <td  style="background-color:gold"><font >Direccion</font></td> 
+        <td  style="background-color:gold"><font  >Gerente</font></td> 
+        <td  style="background-color:gold"><font  >Horarios</font></td>
+        <td  style="background-color:gold"><font  >Acciones</font></td>
+      </tr>   
+    {% for i in consultasucursales %} 
+      <tr> 
+        <td style="background-color:gold"><font>{{ i.SucName }}</font></td> 
+        <td style="background-color:gold"><font>{{ i.SucAddress }}</font></td> 
+        <td style="background-color:gold"><font>{{ i.SucGerente }}</font></td> 
+        <td style="background-color:gold"><font>{{ i.SucHorarios }}</font></td>
+        <td style="background-color:gold">
+          <a class="btn btn-danger btn-sm" href="{% url 'eliminarSuc' i.id %}">Eliminar</a>
+          <a class="btn btn-info btn-sm" href="{% url 'editarSuc' i.id %}">Editar</a>
+        </td>
+      </tr> 
+    {% endfor %} 
+    </table> 
+  </div>
+
+  <div class="container text_center">
+    <h2>Combos   <a class="btn btn-danger" href="agregarComb/">agregar</a> </h2>
+    <table class="table table-striped"> 
+      <tr> 
+        <td  style="background-color:gold"><font  >Nombre</font></td> 
+        <td  style="background-color:gold"><font >Tipo</font></td> 
+        <td  style="background-color:gold"><font  >Precio</font></td> 
+        <td  style="background-color:gold"><font  >Descripcion</font></td>
+        <td  style="background-color:gold"><font  >Disponibilidad</font></td>
+        <td  style="background-color:gold"><font  >Acciones</font></td>
+      </tr>   
+    {% for i in consultacombos %} 
+      <tr> 
+        <td style="background-color:gold"><font>{{ i.CombName }}</font></td> 
+        <td style="background-color:gold"><font>{{ i.CombTipo }}</font></td> 
+        <td style="background-color:gold"><font>{{ i.ComPrecio }}</font></td> 
+        <td style="background-color:gold"><font>{{ i.CombDescripcion }}</font></td>
+        <td style="background-color:gold"><font>{{ i.CombDisp }}</font></td> 
+        <td style="background-color:gold">
+          <a class="btn btn-danger btn-sm" href="{% url 'eliminarComb' i.id %}">Eliminar</a>
+          <a class="btn btn-info btn-sm" href="{% url 'editarComb' i.id %}">Editar</a>
+        </td>
+      </tr> 
+    {% endfor %} 
+    </table> 
+  </div>
+
 </div>
 </center> 
-</div> 
-<div  class="footer"> 
 </div> 
 {% endblock %}
